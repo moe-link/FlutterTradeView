@@ -59,12 +59,6 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-  void handleItemClick(String item) {
-    setState(() {
-      // selectedItem = item;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,17 +77,18 @@ class HomePageState extends State<HomePage> {
                         selectChoice('Categories');
                       },
                       child: Container(
-                        width: 150,
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        width: 120,
+                        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                         decoration: BoxDecoration(
                           color: selectedChoice == 'Categories' ? Colors.blue : Colors.grey[200],
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(4),
                         ),
                         child: Center(
                           child: Text(
                             'Categories',
                             style: TextStyle(
-                              color: selectedChoice == 'Categories' ? Colors.white : Colors.black,
+                              color: selectedChoice == 'Categories' ? Colors.white : Colors.grey[800],
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
@@ -106,17 +101,18 @@ class HomePageState extends State<HomePage> {
                         selectChoice('Shippings');
                       },
                       child: Container(
-                        width: 150,
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                        width: 120,
+                        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                         decoration: BoxDecoration(
                           color: selectedChoice == 'Shippings' ? Colors.blue : Colors.grey[200],
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(4),
                         ),
                         child: Center(
                           child: Text(
                             'Shippings',
                             style: TextStyle(
-                              color: selectedChoice == 'Shippings' ? Colors.white : Colors.black,
+                              color: selectedChoice == 'Shippings' ? Colors.white : Colors.grey[800],
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
@@ -128,31 +124,46 @@ class HomePageState extends State<HomePage> {
                 ),
                 Expanded(
                   child: ListView(
-                    children: const [
-                      ExpansionTile(
-                        title: Text('element'),
-                        leading: Icon(Icons.folder),
-                        backgroundColor: Colors.white12,
-                        initiallyExpanded: false,
-                        children: <Widget>[
-                          ListTile(title: Text('One')),
-                          ListTile(title: Text('Two')),
-                          ListTile(title: Text('Free')),
-                          ListTile(title: Text('Four'))
-                        ]
-                      ),
-                      ExpansionTile(
-                        title: Text('product'),
-                        leading: Icon(Icons.folder),
-                        backgroundColor: Colors.white12,
-                        initiallyExpanded: false,
-                        children: <Widget>[
-                          ListTile(title: Text('One')),
-                          ListTile(title: Text('Two')),
-                          ListTile(title: Text('Free')),
-                          ListTile(title: Text('Four'))
-                        ]
-                      ),
+                    children: [
+                      ...(selectedChoice == 'Shippings' ? [
+                        const ExpansionTile(
+                          title: Text('shippings'),
+                          leading: Icon(Icons.folder),
+                          backgroundColor: Colors.white12,
+                          initiallyExpanded: false,
+                          children: <Widget>[
+                            ListTile(title: Text('OneText')),
+                            ListTile(title: Text('TwoText')),
+                            ListTile(title: Text('ThreeText')),
+                            ListTile(title: Text('FourText'))
+                          ]
+                        )
+                      ] : [
+                        const ExpansionTile(
+                            title: Text('element'),
+                            leading: Icon(Icons.folder),
+                            backgroundColor: Colors.white12,
+                            initiallyExpanded: false,
+                            children: <Widget>[
+                              ListTile(title: Text('OneText')),
+                              ListTile(title: Text('TwoText')),
+                              ListTile(title: Text('ThreeText')),
+                              ListTile(title: Text('FourText'))
+                            ]
+                        ),
+                        const ExpansionTile(
+                          title: Text('product'),
+                          leading: Icon(Icons.folder),
+                          backgroundColor: Colors.white12,
+                          initiallyExpanded: false,
+                          children: <Widget>[
+                            ListTile(title: Text('OneContent')),
+                            ListTile(title: Text('TwoContent')),
+                            ListTile(title: Text('ThreeContent')),
+                            ListTile(title: Text('FourContent'))
+                          ]
+                        ),
+                      ])
                     ],
                   ),
                 ),
@@ -161,6 +172,7 @@ class HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
               color: Colors.grey[300],
               child: const Center(
               ),
