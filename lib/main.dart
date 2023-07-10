@@ -129,47 +129,26 @@ class HomePageState extends State<HomePage> {
                 ),
                 Expanded(
                   child: ListView(
-                    children: [
-                      ExpansionPanelList(
-                        expansionCallback: (panelIndex,isExpanded){
-                          setState(() {
-                            // currentPanelIndex=(currentPanelIndex!=panelIndex?panelIndex:-1);
-                          });
-                        },
-                        children: [
-                          ExpansionPanel(
-                                headerBuilder: (context,isExpanded){
-                                  return const ListTile(
-                                    title: Text('element'),
-                                  );
-                                },
-                                body:const Padding(
-                                  padding: EdgeInsets.all(30.0),
-                                  child:ListBody(
-                                    children: <Widget>[
-                                      Text('這是標題的內容'),
-                                    ],
-                                  ),
-                                ),
-                                isExpanded: false,
-                          ),
-                          ExpansionPanel(
-                            headerBuilder: (context,isExpanded){
-                              return const ListTile(
-                                title: Text('product'),
-                              );
-                            },
-                            body:const Padding(
-                              padding: EdgeInsets.all(30.0),
-                              child: ListBody(
-                                children: <Widget>[
-                                  Text('這是標題的內容'),
-                                ],
-                              ),
-                            ),
-                            isExpanded: false,
-                          ),
-                        ],
+                    children: const [
+                      ExpansionTile(
+                        title: Text('element'),
+                        initiallyExpanded: false,
+                        children: <Widget>[
+                          ListTile(title: Text('One')),
+                          ListTile(title: Text('Two')),
+                          ListTile(title: Text('Free')),
+                          ListTile(title: Text('Four'))
+                        ]
+                      ),
+                      ExpansionTile(
+                          title: Text('product'),
+                          initiallyExpanded: false,
+                          children: <Widget>[
+                            ListTile(title: Text('One')),
+                            ListTile(title: Text('Two')),
+                            ListTile(title: Text('Free')),
+                            ListTile(title: Text('Four'))
+                          ]
                       ),
                     ],
                   ),
