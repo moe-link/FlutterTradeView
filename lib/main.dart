@@ -36,7 +36,6 @@ class HomePageState extends State<HomePage> {
   List<String> elementList  = []; // element list
   List<String> productList = [];  // product list
   List<String> shippingList = []; // shipping list
-  String selectedItem = ''; // 选中的列表项
   List<int> mList = [1,2 ,3];
 
   void selectChoice(String choice) {
@@ -62,7 +61,7 @@ class HomePageState extends State<HomePage> {
 
   void handleItemClick(String item) {
     setState(() {
-      selectedItem = item;
+      // selectedItem = item;
     });
   }
 
@@ -132,6 +131,8 @@ class HomePageState extends State<HomePage> {
                     children: const [
                       ExpansionTile(
                         title: Text('element'),
+                        leading: Icon(Icons.folder),
+                        backgroundColor: Colors.white12,
                         initiallyExpanded: false,
                         children: <Widget>[
                           ListTile(title: Text('One')),
@@ -141,14 +142,16 @@ class HomePageState extends State<HomePage> {
                         ]
                       ),
                       ExpansionTile(
-                          title: Text('product'),
-                          initiallyExpanded: false,
-                          children: <Widget>[
-                            ListTile(title: Text('One')),
-                            ListTile(title: Text('Two')),
-                            ListTile(title: Text('Free')),
-                            ListTile(title: Text('Four'))
-                          ]
+                        title: Text('product'),
+                        leading: Icon(Icons.folder),
+                        backgroundColor: Colors.white12,
+                        initiallyExpanded: false,
+                        children: <Widget>[
+                          ListTile(title: Text('One')),
+                          ListTile(title: Text('Two')),
+                          ListTile(title: Text('Free')),
+                          ListTile(title: Text('Four'))
+                        ]
                       ),
                     ],
                   ),
@@ -159,11 +162,7 @@ class HomePageState extends State<HomePage> {
           Expanded(
             child: Container(
               color: Colors.grey[300],
-              child: Center(
-                child: Text(
-                  selectedItem,
-                  style: const TextStyle(fontSize: 20),
-                ),
+              child: const Center(
               ),
             ),
           ),
